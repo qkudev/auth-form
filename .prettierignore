@@ -1,0 +1,8 @@
+dist
+node_modules
+.github
+*.md
+.next
+build
+src/generated
+e2e-tests/

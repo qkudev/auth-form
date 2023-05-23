@@ -1,0 +1,37 @@
+:root {
+  --color-primary: #4f90f0;
+  --color-primary-light: #4f90f0e0;
+  --color-primary-lighter: #4f90f0c0;
+  --color-border: #808194;
+  --color-text: #1e1e1e;
+  --color-text-light: #1e1e1ec0;
+  --color-text-lighter: #1e1e1ea0;
+  --color-text-secondary: #808194;
+  --color-text-contrast: #fff;
+  --color-background: rgb(240 242 245);
+  --color-white: #fff;
+  --color-icon-default: #808194;
+  --color-error: #f00;
+  --color-disabled: #f0f0f0;
+  --color-disabled-text: #c9c9c9;
+  --element-height-s: 36px;
+  --element-height-m: 48px;
+  --element-height-l: 56px;
+  --border-radius-s: 4px;
+  --border-radius-m: 8px;
+  --border-width-s: 1px;
+  --border-width-m: 2px;
+  --border-width-l: 3px;
+  --box-shadow: 4px 4px 30px rgb(84 84 84 / 10%);
+  --spacing-xs: 8px;
+  --spacing-s: 16px;
+  --spacing-m: 24px;
+  --spacing-l: 32px;
+  --spacing-xl: 48px;
+  --z-index-1: 100;
+  --z-index-2: 500;
+  --z-index-3: 1000;
+  --font-family: system-ui, -apple-system, 'Segoe UI', roboto, 'Helvetica Neue', 'Noto Sans',
+    'Liberation Sans', arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+}

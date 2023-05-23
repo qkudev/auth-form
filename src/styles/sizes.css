@@ -1,0 +1,11 @@
+.size-small {
+  height: var(--element-height-s);
+}
+
+.size-medium {
+  height: var(--element-height-m);
+}
+
+.size-large {
+  height: var(--element-height-l);
+}

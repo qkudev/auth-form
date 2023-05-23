@@ -1,0 +1,9 @@
+{
+  "home-page": {
+    "html": {
+      "title": "Home"
+    },
+    "title": "Hello, friend",
+    "sign-out": "Log out"
+  }
+}

@@ -1,0 +1,9 @@
+.root {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100svh;
+  align-content: center;
+  row-gap: var(--spacing-s);
+}
