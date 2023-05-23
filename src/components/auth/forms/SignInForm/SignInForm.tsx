@@ -91,7 +91,13 @@ export const SignInForm: FC<Props> = memo(({ onSubmit, loading, errorLabel, subm
             onBlur={handleBlur}
             onChange={handleChange}
             icon={
-              <button data-cy="show-password-button" type="button" onClick={toggle}>
+              <button
+                name="show-password"
+                data-cy="show-password-button"
+                type="button"
+                onClick={toggle}
+                aria-label={t('show-password-button')!}
+              >
                 <IconEyeCrossed />
               </button>
             }
