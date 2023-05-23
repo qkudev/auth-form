@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ./src --fix",
+    "lint": "eslint ./src ./pages --fix",
     "lint:css": "stylelint './src/**/*.css'",
     "lint:css:fix": "stylelint './src/**/*.css' --fix",
     "test": "jest",
@@ -14,9 +14,6 @@
     "build-storybook": "storybook build",
     "test:e2e": "cypress open --e2e",
     "prepare": "husky install"
-  },
-  "engines": {
-    "node": "^16.13.0"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
