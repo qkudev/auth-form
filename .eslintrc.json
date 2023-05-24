@@ -30,6 +30,7 @@
     "**/*.test.ts",
     "**/*.stories.tsx",
     "**/*.d.ts",
+    "next.config.js",
     "cypress",
     "cypress.config.ts",
     "next-i18next.config.js"
