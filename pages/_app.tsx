@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 
 import { asValue } from 'awilix';
+import NextApp from 'next/app';
 import { appWithTranslation } from 'next-i18next';
 import { Provider } from 'react-redux';
 
@@ -34,12 +35,14 @@ function App({ Component, pageProps, isLoggedIn }: IAppProps) {
 const Wrapped = withContainer(appWithTranslation(App), container) as AppType<IAppProps>;
 
 Wrapped.getInitialProps = async (appContext: AppContext) => {
+  const appInitialProps = await NextApp.getInitialProps(appContext);
   const { req } = appContext.ctx;
   const pageProps = {
+    ...appInitialProps.pageProps,
     isLoggedIn: verifyRequest(req),
   };
 
-  return pageProps as unknown as IAppProps;
+  return pageProps;
 };
 
 export default Wrapped;
