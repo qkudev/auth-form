@@ -31,7 +31,8 @@
     "**/*.stories.tsx",
     "**/*.d.ts",
     "cypress",
-    "cypress.config.ts"
+    "cypress.config.ts",
+    "next-i18next.config.js"
   ],
   "plugins": ["@typescript-eslint", "prettier", "jest-dom"],
   "rules": {

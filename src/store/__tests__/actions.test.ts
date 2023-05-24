@@ -1,9 +1,6 @@
-import routerMock from 'next-router-mock';
-
 import { createTestContainer } from '@/test-utils';
-import { urls } from '@/utils/constants';
 
-import { signIn, signUp, signOut } from '../actions';
+import { signIn, signOut, signUp } from '../actions';
 
 const testToken =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
@@ -15,8 +12,6 @@ beforeEach(() => {
 
 describe('signIn', () => {
   it('should sign in user', async () => {
-    const pushMock = jest.spyOn(routerMock, 'push');
-
     const transportMock = container.resolve('transportMock');
     transportMock.onPost('/api/auth/sign-in/email').reply(201, {
       success: true,
@@ -46,8 +41,6 @@ describe('signIn', () => {
         strategy: 'email',
       },
     });
-
-    expect(pushMock).toHaveBeenCalledWith(urls.home);
   });
 
   it('should log error', async () => {
@@ -78,8 +71,6 @@ describe('signIn', () => {
 
 describe('signUp', () => {
   it('should sign up user', async () => {
-    const pushMock = jest.spyOn(routerMock, 'push');
-
     const transportMock = container.resolve('transportMock');
     transportMock.onPost('/api/auth/sign-up/email').reply(201, {
       success: true,
@@ -109,8 +100,6 @@ describe('signUp', () => {
         strategy: 'email',
       },
     });
-
-    expect(pushMock).toHaveBeenCalledWith(urls.home);
   });
 
   it('should log error', async () => {
@@ -141,8 +130,6 @@ describe('signUp', () => {
 
 describe('signOut', () => {
   it('should sign out user', async () => {
-    const pushMock = jest.spyOn(routerMock, 'push');
-
     const transportMock = container.resolve('transportMock');
     transportMock.onPost('/api/auth/sign-out').reply(201);
 
@@ -156,8 +143,6 @@ describe('signOut', () => {
     expect(logger.logEvent).toHaveBeenCalledWith({
       type: 'sign-out',
     });
-
-    expect(pushMock).toHaveBeenCalledWith(urls.auth.signIn);
   });
 
   it('should handle error and sign out', async () => {

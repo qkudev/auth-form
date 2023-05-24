@@ -5,10 +5,6 @@ import { ERROR_CODE, urls } from '@/utils/constants';
 
 import { createThunk } from './utils';
 
-const onLogin = () => {
-  Router.push(urls.home);
-};
-
 const isServerError = (e: unknown): e is AxiosError<ApiErrorResponse, unknown> =>
   e instanceof AxiosError && e.response?.data?.success === false;
 
@@ -59,8 +55,6 @@ export const signIn = createThunk<AuthAPI.SignInResponse, AuthAPI.SignInPayload>
       },
     });
 
-    onLogin();
-
     return thunkAPI.fulfillWithValue({
       token,
     });
@@ -105,8 +99,6 @@ export const signUp = createThunk<AuthAPI.SignUpResponse, AuthAPI.SignUpPayload>
         strategy,
       },
     });
-
-    onLogin();
 
     return {
       token,

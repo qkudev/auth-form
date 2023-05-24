@@ -9,6 +9,8 @@ import { container, useContainer, withContainer } from '@/container';
 import { verifyRequest } from '@/server/authenticate';
 import { makeStore } from '@/store';
 
+import nextI18nConfig from '../next-i18next.config';
+
 import type { AppContext, AppProps, AppType } from 'next/app';
 
 import '@/styles/globals.css';
@@ -32,7 +34,10 @@ function App({ Component, pageProps, isLoggedIn }: IAppProps) {
   );
 }
 
-const Wrapped = withContainer(appWithTranslation(App), container) as AppType<IAppProps>;
+const Wrapped = withContainer(
+  appWithTranslation(App, nextI18nConfig),
+  container,
+) as AppType<IAppProps>;
 
 Wrapped.getInitialProps = async (appContext: AppContext) => {
   const appInitialProps = await NextApp.getInitialProps(appContext);
