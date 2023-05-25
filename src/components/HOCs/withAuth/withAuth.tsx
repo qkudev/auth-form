@@ -18,7 +18,7 @@ export function withAuth<P>(Component: FC<P>) {
       if (!isLoggedIn) {
         router.push(urls.auth.signIn);
       }
-    }, [router, isLoggedIn]);
+    }, [isLoggedIn, router]);
 
     return <Component {...(props as any)} />;
   }
