@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
@@ -9,10 +9,12 @@ import { Link, Typography } from '@/ui/core';
 import { urls } from '@/utils/constants';
 
 export function SignUpPage() {
-  const { loading, error } = useAppSelector((state) => state.auth);
+  const { error } = useAppSelector((state) => state.auth);
+  const [loading, setLoading] = useState(false);
   const dispatch = useAppDispatch();
   const signUp = useCallback(
     (payload: AuthAPI.EmailPasswordPayload) => {
+      setLoading(true);
       dispatch(
         actions.signUp({
           strategy: 'email',
@@ -31,6 +33,12 @@ export function SignUpPage() {
 
     return t('error-code.AE000');
   }, [t, error]);
+
+  useEffect(() => {
+    if (error) {
+      setLoading(false);
+    }
+  }, [error, setLoading]);
 
   return (
     <>

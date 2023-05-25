@@ -8,7 +8,7 @@ export { HomePage as default } from '@/components/home/pages';
 export const getServerSideProps: GetServerSideProps = async ({ locale, req, res }) => {
   const isLoggedIn = verifyRequest(req);
 
-  if (!isLoggedIn) {
+  if (req && !isLoggedIn) {
     res.writeHead(301, { location: '/auth/sign-in' });
     res.end();
     return { props: {} };
